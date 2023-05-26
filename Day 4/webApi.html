@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML5 Web APIs Example</title>
+  <script>
+    // Geolocation API
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("location").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+    }
+
+    // Web Storage API
+    function saveData() {
+      var inputText = document.getElementById("data").value;
+      localStorage.setItem("userInput", inputText);
+      alert("Data saved!");
+    }
+
+    function retrieveData() {
+      var savedData = localStorage.getItem("userInput");
+      document.getElementById("saved-data").innerHTML = "Saved Data: " + savedData;
+    }
+  </script>
+</head>
+<body>
+  <h1>HTML5 Web APIs Example</h1>
+
+  <h2>Geolocation API</h2>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="location"></p>
+
+  <h2>Web Storage API</h2>
+  <label for="data">Enter data to save:</label>
+  <input type="text" id="data">
+
+  <button onclick="saveData()">Save</button>
+  <button onclick="retrieveData()">Retrieve</button>
+  <p id="saved-data"></p>
+</body>
+</html>

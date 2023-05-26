@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Website</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My First Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li> <!-- Add href attribute to specify the link destination -->
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p>Hello, I am a fresh graduate passionate about web development. I love exploring new technologies and
+                creating exciting websites.</p>
+        </section>
+
+        <section>
+            <h2>Contact Me</h2>
+            <form>
+                <label for="name">Name:</label>
+                <!-- Use the "for" attribute to associate the label with the corresponding input element -->
+                <input type="text" id="name" name="name" required>
+                <!-- Add the "required" attribute to make the field mandatory -->
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section>
+            <h2>My Skills</h2>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Web Design</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>My Projects</h2>
+            <table>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Project 1</td>
+                    <td>This project involved creating a responsive website using HTML and CSS.</td>
+                </tr>
+                <tr>
+                    <td>Project 2</td>
+                    <td>Developed a JavaScript-based game with interactive features.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>My Favorite Song</h2>
+            <audio controls>
+                <source src="song.mp3" type="audio/mpeg">
+                <!-- Add the source file for the audio using the src attribute and specify the type attribute -->
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <section>
+            <h2>Video Example</h2>
+            <video controls width="480" height="270">
+                <source src="./LinkedIn Bot Demo.mp4" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+        </section>
+
+        <section>
+            <iframe width="480" height="270" src="https://leetcode.com/contest/weekly-contest-347/" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 My First Website. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

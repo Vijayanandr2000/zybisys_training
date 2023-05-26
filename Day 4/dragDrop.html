@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML5 Drag and Drop API Example</title>
+  <style>
+    .drag-container {
+      display: flex;
+    }
+    .drag-box {
+      width: 150px;
+      height: 150px;
+      border: 2px solid gray;
+      text-align: center;
+      padding: 10px;
+      margin-right: 10px;
+      cursor: move;
+    }
+  </style>
+  <script>
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      console.log("drag", event)
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      event.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</head>
+<body>
+  <h1>HTML5 Drag and Drop API Example</h1>
+
+  <div class="drag-container">
+    <div id="drag-box1" class="drag-box" draggable="true" ondragstart="drag(event)">
+      Drag Box 1
+    </div>
+    <div id="drag-box2" class="drag-box" draggable="true" ondragstart="drag(event)">
+      Drag Box 2
+    </div>
+  </div>
+
+  <div id="drop-box" class="drag-box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Drop Box
+  </div>
+</body>
+</html>
