@@ -1,0 +1,27 @@
+#container {
+    background-color: lightgray;
+    padding: 10px;
+  }
+
+  .highlight {
+    font-weight: bold;
+    color: blue;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  #container p {
+    margin-left: 20px;
+  }
+  ul > li {
+    list-style: none;
+  }
+  .highlight + p {
+    color: red;
+  }
+            
