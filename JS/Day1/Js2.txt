@@ -1,0 +1,54 @@
+
+
+2. What is the result of the following expression?
+```javascript
+typeof null;
+```
+Explanation: The typeof operator in JavaScript returns the type of the operand. However, typeof null returns "object" instead of "null" due to a historical quirk in JavaScript's type system.
+
+3. What will be the output of the following code?
+```javascript
+console.log(3 === 3 === 3);
+```
+Explanation: JavaScript evaluates the expression from left to right. The comparison "3 === 3" is true, and then the comparison "true === 3" is false. So, the overall result is false.
+
+4. What is the output of the following code?
+```javascript
+console.log(1 < 2 < 3);
+```
+Explanation: JavaScript evaluates the expression from left to right. The comparison "1 < 2" is true, and then the comparison "true < 3" is true. So, the overall result is true.
+
+5. What will be the output of the following code?
+```javascript
+console.log("20" + 1 - 1);
+```
+Explanation: JavaScript performs string concatenation when the "+" operator encounters a string. So, "20" is concatenated with 1, resulting in "201". Then, the subtraction operator (-) tries to convert the string "201" to a number, resulting in the final output of 200.
+
+
+7. What will be the output of the following code?
+```javascript
+console.log([] + []);
+```
+Explanation: When arrays are converted to strings, they are joined with commas. Since both arrays are empty, they result in an empty string ("") when concatenated together.
+
+8. What is the output of the following code?
+```javascript
+console.log(typeof NaN === "number");
+```
+Explanation: NaN (Not-a-Number) is considered a numeric value in JavaScript. So, typeof NaN returns "number". The comparison "number === 'number'" is true, resulting in the output true.
+
+9. What will be the output of the following code?
+```javascript
+console.log(2 ** 3 ** 2);
+```
+Explanation: The exponentiation operator (**) associates right to left. So, 3 ** 2 is 9, and then 2 ** 9 is 512. Thus, the final output is 512.
+
+10. What is the result of the following expression?
+```javascript
+typeof [];
+```
+Explanation: Arrays in JavaScript are considered objects. So, the typeof operator returns "object" for an array.
+
+
+
+//https://admin.sli.do/event/5SZi3QTrAasCgLN5j5yaJQ/polls

@@ -1,0 +1,111 @@
+1. Question: What will be the output of the following code?
+   
+   console.log(foo);
+   var foo = "Hello";
+   
+   Answer: The output will be `undefined`. In JavaScript, variable declarations using `var` are hoisted to the top of their scope, but the initializations are not. So, `var foo` is hoisted and declared but remains undefined until the line `foo = "Hello"` is executed.
+
+2. Question: What will be the output of the following code?
+   
+   console.log(bar);
+   let bar = "World";
+   
+   Answer: ReferenceError: `bar` is not defined. Unlike `var`, variables declared with `let` and `const` are not hoisted to the top of their scope. Therefore, the `console.log` statement tries to access an undefined variable, resulting in an error.
+
+3. Question: What will be the output of the following code?
+   
+   let x = "outside";
+   function foo() {
+     console.log(x);
+     let x = "inside";
+   }
+   foo();
+   
+   Answer: ReferenceError: `x` is not defined. In this case, `let x` is hoisted to the top of the `foo` function scope, but it is not initialized before the `console.log` statement. Hence, it throws an error.
+
+4. Question: What will be the output of the following code?
+   
+   var x = 1;
+   if (function f() {}) {
+     x += typeof f;
+   }
+   console.log(x);
+   
+   Answer: The output will be `"1undefined"`. Although the function `f` is defined within the `if` statement, it does not have a name in the outer scope. Therefore, `typeof f` returns `"undefined"`, which is concatenated with the existing value of `x`.
+
+5. Question: What will be the output of the following code?
+   
+   var x = 1;
+   if (true) {
+     var x = 2;
+     console.log(x);
+   }
+   console.log(x);
+   
+   Answer: The output will be `2` and `2`. The `var x` declaration inside the `if` statement has function scope, so it modifies the value of the outer `x` variable.
+
+6. Question: What will be the output of the following code?
+   
+   var x = 1;
+   function foo() {
+     var x = 2;
+     console.log(x);
+   }
+   foo();
+   console.log(x);
+   
+   Answer: The output will be `2` and `1`. The `var x` declaration inside the `foo` function creates a new variable with function scope that shadows the outer `x` variable.
+
+7. Question: What will be the output of the following code?
+   
+   var x = 1;
+   function bar() {
+     x = 2;
+     console.log(x);
+   }
+   bar();
+   console.log(x);
+   
+   Answer: The output will be `2` and `2`. In this case, the `x` variable is accessed and modified directly within the `bar` function, so it affects the value of the outer `x` variable.
+
+8. Question: What will be the output of the following code?
+   
+   var x = 1;
+   function baz() {
+     console.log(x);
+   }
+   (function () {
+     var x = 2;
+     baz();
+   })();
+   
+
+
+   Answer: The output will be `1`. The `x` variable inside the IIFE (Immediately Invoked Function Expression) has a separate scope from the outer `x` variable, so the `baz` function accesses the outer variable and prints its value.
+
+9. Question: What will be the output of the following code?
+   
+   console.log(foo);
+   let foo = "Hello";
+   
+   Answer: ReferenceError: `foo` is not defined. Similar to `let`, variables declared with `const` are also not hoisted to the top of their scope. Therefore, trying to access `foo` before its declaration results in an error.
+
+10. Question: What will be the output of the following code?
+    
+    function foo() {
+      console.log(bar);
+      const bar = "World";
+    }
+    foo();
+    
+    Answer: ReferenceError: `bar` is not defined. In this case, the variable `bar` is declared with `const` inside the `foo` function, but it is not initialized before the `console.log` statement. Hence, it throws an error.
+
+//https://www.canva.com/design/DAFk777nvOA/ZO6Q-dOOf2yCXHuuy4npAw/edit?utm_content=DAFk777nvOA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+//https://admin.sli.do/event/t38PyDLV8YUeUhe91sgPpc/polls
+
+1.https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV
+2.https://www.frontendmentor.io/challenges/product-preview-card-component-GO7UmttRfa
+3.https://www.frontendmentor.io/challenges/suite-landing-page-tj_eaU-Ra
+4.https://www.frontendmentor.io/challenges/meet-landing-page-rbTDS6OUR
+5.https://www.frontendmentor.io/challenges/manage-landing-page-SLXqC6P5

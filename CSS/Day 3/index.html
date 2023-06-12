@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS - Grid</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            border: 1px solid;
+            /* grid-column-gap: 10px; */
+            grid-template-rows: repeat(3, minmax(100px, auto));
+            grid-auto-rows: 70px;
+            /* grid-row-gap: 1..0px; */
+            grid-gap: 10px;
+            
+        }
+        .box{
+            /* width: 50px;
+            height: 50px; */
+            background-color: gray;
+        }
+
+       
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolore dolores, distinctio soluta, minus laboriosam nulla dicta temporibus repellendus nihil perferendis numquam maiores nostrum voluptates recusandae. Maiores iusto similique nihil!</div>
+        
+        <div class="box box2">box2</div>
+        
+        <div class="box box3">box3</div>
+        
+        <div class="box box4">box4</div>
+        
+        <div class="box box5">box5</div>
+        
+        <div class="box box6">box6</div>
+        
+        <div class="box box7">box7</div>
+        
+        <div class="box box8">box8</div>
+        
+        <div class="box box9">box9</div>
+        
+        <div class="box box10">box10</div>
+        
+        <div class="box box11">box11</div>
+        
+    </div>
+    
+</body>
+</html>
