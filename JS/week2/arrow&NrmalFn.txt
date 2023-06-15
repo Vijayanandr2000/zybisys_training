@@ -1,0 +1,114 @@
+
+1. Syntax:
+   - Normal function syntax:
+     ```javascript
+     function functionName(parameters) {
+       // function body
+     }
+     ```
+
+   - Arrow function syntax:
+     ```javascript
+     const functionName = (parameters) => {
+       // function body
+     };
+     ```
+
+2. Lexical `this` Binding:
+   - Normal functions have their own `this` value, which is dynamically scoped and determined by how the function is called.
+   - Arrow functions do not have their own `this` value. Instead, they inherit the `this` value from the surrounding scope (the parent scope) where they are defined.
+
+   Example:
+
+   ```javascript
+   // Normal function
+   const person1 = {
+     name: 'Alice',
+     greet: function() {
+       console.log('Hello, ' + this.name);
+     }
+   };
+
+   person1.greet(); // Output: Hello, Alice
+
+   // Arrow function
+   const person2 = {
+     name: 'Bob',
+     greet: () => {
+       console.log('Hello, ' + this.name); // 'this' does not refer to person2
+     }
+   };
+
+   person2.greet(); // Output: Hello, undefined
+   ```
+
+3. Arguments Object:
+   - Normal functions have access to the `arguments` object, which contains the arguments passed to the function.
+   - Arrow functions do not have their own `arguments` object. Instead, they inherit the `arguments` object from the surrounding scope.
+
+   Example:
+
+   ```javascript
+   function sum() {
+     let total = 0;
+     for (let i = 0; i < arguments.length; i++) {
+       total += arguments[i];
+     }
+     return total;
+   }
+
+   console.log(sum(1, 2, 3)); // Output: 6
+
+   const arrowSum = (...args) => {
+     let total = 0;
+     for (let i = 0; i < args.length; i++) {
+       total += args[i];
+     }
+     return total;
+   };
+
+   console.log(arrowSum(1, 2, 3)); // Output: 6
+   ```
+
+4. Binding of `this` and `arguments`:
+   - Normal functions can be used as constructors, and their `this` value and `arguments` object can be explicitly set using `bind`, `call`, or `apply` methods.
+   - Arrow functions cannot be used as constructors, and they do not have their own `this` or `arguments` object. Trying to use `bind`, `call`, or `apply` on an arrow function will not change its `this` value.
+
+   Example:
+
+   ```javascript
+   function Person(name) {
+     this.name = name;
+   }
+
+   const alice = new Person('Alice');
+   console.log(alice.name); // Output: Alice
+
+   const ArrowPerson = (name) => {
+     this.name = name;
+   };
+
+   const bob = new ArrowPerson('Bob'); // Error: ArrowPerson is not a constructor
+   ```
+
+5. Use of `return`:
+   - Normal functions have an implicit `return` statement. If a value is not explicitly returned, the function returns `undefined`.
+   - Arrow functions have implicit return for one-line expressions without curly braces. If the function body is enclosed in curly braces, the `return` statement must be explicitly used.
+
+   Example:
+
+   ```javascript
+   function multiply(a, b) {
+     return a * b;
+   }
+
+   console.log(multiply(2, 3)); // Output
+
+: 6
+
+   const arrowMultiply = (a, b) => a * b;
+
+   console.log(arrowMultiply(2, 3)); // Output: 6
+   ```
+
+These are some of the basic and advanced differences between arrow functions and normal functions in JavaScript. It's important to choose the appropriate type of function depending on the specific use case and the behavior you want to achieve.
