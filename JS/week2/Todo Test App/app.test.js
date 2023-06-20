@@ -18,7 +18,7 @@ const addButton = dom.window.document.getElementById('addButton');
 const taskList = dom.window.document.getElementById('taskList');
 
 // Test cases
-test.only('Add a task to the todo list', () => {
+test('Add a task to the todo list', () => {
   taskInput.value = 'Buy groceries';
   addButton.click();
   expect(taskList.innerHTML).toContain('<li></li>');
