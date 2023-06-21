@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Web Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .navbar a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .navbar a.active {
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="active" href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Welcome to the Home Page</h1>
+      <p>This is the content of the home page.</p>
+    </section>
+
+    <section id="about" style="display: none;">
+      <h1>About Us</h1>
+      <p>This is the content of the about page.</p>
+    </section>
+
+    <section id="contact" style="display: none;">
+      <h1>Contact Us</h1>
+      <p>This is the content of the contact page.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    var contentDivs = document.querySelectorAll('section[id]');
+
+    function showContent(contentId) {
+      contentDivs.forEach(function(div) {
+        if (div.id === contentId) {
+          div.style.display = 'block';
+        } else {
+          div.style.display = 'none';
+        }
+      });
+    }
+
+    var navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var targetId = link.getAttribute('href').substring(1);
+        showContent(targetId);
+        navLinks.forEach(function(navLink) {
+          navLink.classList.remove('active');
+        });
+        link.classList.add('active');
+      });
+    });
+
+    showContent('home');
+  </script>
+</body>
+</html>

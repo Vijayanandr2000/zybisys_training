@@ -1,0 +1,198 @@
+Example 1:
+```javascript
+function outer() {
+  var outerVariable = 'I am from the outer function';
+
+  function inner() {
+    console.log(outerVariable);
+  }
+
+  return inner;
+}
+
+var closureExample = outer();
+closureExample(); // Output: "I am from the outer function"
+```
+Explanation: This example is similar to the one we discussed earlier. The `inner` function references the `outerVariable` from its containing scope, creating a closure.
+
+Example 2:
+```javascript
+function createCounter() {
+  var count = 0;
+
+  return function() {
+    return ++count;
+  };
+}
+
+var counter = createCounter();
+console.log(counter()); // Output: 1
+console.log(counter()); // Output: 2
+```
+Explanation: The `createCounter` function returns an anonymous function that increments and returns the `count` variable. The returned function preserves the reference to `count`, allowing it to maintain and increment the value across multiple invocations.
+
+Example 3:
+```javascript
+function multiplier(x) {
+  return function(y) {
+    return x * y;
+  };
+}
+
+var multiplyByTwo = multiplier(2);
+console.log(multiplyByTwo(5)); // Output: 10
+console.log(multiplyByTwo(10)); // Output: 20
+```
+Explanation: The `multiplier` function takes an argument `x` and returns an anonymous function. The returned function takes another argument `y` and multiplies it by `x`. The closure captures and remembers the value of `x`, allowing us to create specialized functions like `multiplyByTwo` that remember the multiplier value.
+
+Example 4:
+```javascript
+function outer() {
+  var name = 'John';
+
+  setTimeout(function() {
+    console.log('Hello, ' + name);
+  }, 1000);
+}
+
+outer(); // Output: (After 1 second) "Hello, John"
+```
+Explanation: In this example, the `setTimeout` function creates a closure. It references the `name` variable from the `outer` function, even after `outer` has completed its execution.
+
+Example 5:
+```javascript
+function createIncrementer() {
+  var count = 0;
+
+  return {
+    increment: function() {
+      return ++count;
+    },
+    reset: function() {
+      count = 0;
+    }
+  };
+}
+
+var incrementer = createIncrementer();
+console.log(incrementer.increment()); // Output: 1
+console.log(incrementer.increment()); // Output: 2
+incrementer.reset();
+console.log(incrementer.increment()); // Output: 1
+```
+Explanation: The `createIncrementer` function returns an object with two methods, `increment` and `reset`, both of which have access to the `count` variable due to closures. This allows us to maintain a count that can be incremented or reset as needed.
+
+Example 6:
+```javascript
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var addFive = makeAdder(5);
+
+console.log(addFive(10)); // Output: 15
+```
+Explanation: The `makeAdder` function takes an argument `x` and returns an anonymous function that adds `x` to the passed argument `y`. The closure retains the value of `x`, allowing us to create specific adder functions like `addFive`.
+
+Example 7:
+```javascript
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+``
+
+`
+Explanation: This example demonstrates a common pitfall when using closures. The `setTimeout` function creates a closure and references the `i` variable. However, by the time the callback function is executed, the loop has already completed, and the value of `i` is 6. Therefore, this code will output the number 6 five times after a 1-second delay.
+
+To avoid this, you can use an IIFE (Immediately Invoked Function Expression) to create a new scope for each iteration:
+```javascript
+for (var i = 1; i <= 5; i++) {
+  (function(num) {
+    setTimeout(function() {
+      console.log(num);
+    }, 1000);
+  })(i);
+}
+```
+
+Example 8:
+```javascript
+function createGreeter(name) {
+  return {
+    sayHello: function() {
+      console.log('Hello, ' + name);
+    },
+    sayGoodbye: function() {
+      console.log('Goodbye, ' + name);
+    }
+  };
+}
+
+var greeter = createGreeter('Alice');
+greeter.sayHello(); // Output: "Hello, Alice"
+greeter.sayGoodbye(); // Output: "Goodbye, Alice"
+```
+Explanation: The `createGreeter` function takes a `name` argument and returns an object with two methods. Both methods have access to the `name` variable through closures, allowing them to greet the specific name provided when creating the `greeter` object.
+
+Example 9:
+```javascript
+function memoize(func) {
+  var cache = {};
+
+  return function(n) {
+    if (n in cache) {
+      console.log('Fetching from cache...');
+      return cache[n];
+    } else {
+      console.log('Calculating...');
+      var result = func(n);
+      cache[n] = result;
+      return result;
+    }
+  };
+}
+
+function expensiveOperation(x) {
+  // Imagine a time-consuming computation here
+  return x * 2;
+}
+
+var memoizedOperation = memoize(expensiveOperation);
+console.log(memoizedOperation(5)); // Output: "Calculating..." then 10
+console.log(memoizedOperation(5)); // Output: "Fetching from cache..." then 10
+```
+Explanation: The `memoize` function takes a function `func` as an argument and returns a memoized version of it. The memoized function caches the results of expensive computations, allowing subsequent calls with the same argument to retrieve the result from the cache rather than re-computing it. The `cache` variable is preserved by the closure.
+
+Example 10:
+```javascript
+function createCounter() {
+  var count = 0;
+
+  var counter = {
+    increment: function() {
+      return ++count;
+    },
+    decrement: function() {
+      return --count;
+    },
+    getCount: function() {
+      return count;
+    }
+  };
+
+  return counter;
+}
+
+var counter = createCounter();
+console.log(counter.increment()); // Output: 1
+console.log(counter.increment()); // Output: 2
+console.log(counter.decrement()); // Output: 1
+console.log(counter.getCount()); // Output: 1
+```
+Explanation: In this example, the `createCounter` function returns an object with three methods: `increment`, `decrement`, and `getCount`. Each method has access to the `count` variable through closures, allowing them to modify and retrieve the counter value.
+
+I hope these additional examples help deepen your understanding of closures in JavaScript. If you have any more questions, feel free to ask!

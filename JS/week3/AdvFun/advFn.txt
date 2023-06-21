@@ -1,0 +1,100 @@
+1. Introduction to Functions:
+   - Explanation: Functions in JavaScript are reusable blocks of code that perform a specific task. They allow you to write modular and organized code. Functions can be declared using the `function` keyword or created as function expressions by assigning a function to a variable.
+   - Example:
+     ```javascript
+     // Function declaration
+     function greet(name) {
+       console.log("Hello, " + name + "!");
+     }
+     greet("Alice"); // Output: Hello, Alice!
+
+     // Function expression
+     const add = function (a, b) {
+       return a + b;
+     };
+     console.log(add(2, 3)); // Output: 5
+     ```
+
+2. Higher-Order Functions:
+   - Explanation: Higher-order functions are functions that can accept other functions as arguments or return functions as results. They provide a powerful way to compose and manipulate functions.
+   - Example:
+     ```javascript
+     const numbers = [1, 2, 3, 4, 5];
+
+     // map: applies a function to each element and returns a new array
+     const squaredNumbers = numbers.map(function (currNUmber, index, numbers) {
+       return num * num;
+     });
+     console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+
+     // filter: returns a new array with elements that pass a condition
+     const evenNumbers = numbers.filter(function (num) {
+       return num % 2 === 0;
+     });
+     console.log(evenNumbers); // Output: [2, 4]
+
+     // reduce: applies a function to accumulate a value from an array
+     const sum = numbers.reduce(function (accumulator, num) {
+       return accumulator + num;
+     }, 0);
+     console.log(sum); // Output: 15
+     ```
+
+3. Closures:
+   - Explanation: Closures are functions that have access to variables from their outer (enclosing) scope, even after the outer function has finished executing. They allow for data privacy and can be used to create unique instances of functions.
+   - Example:
+     ```javascript
+     function outer() {
+       const message = "Hello, ";
+
+       function inner(name) {
+         console.log(message + name);
+       }
+
+       return inner;
+     }
+
+     const greet = outer();
+     greet("Alice"); // Output: Hello, Alice!
+     greet("Bob"); // Output: Hello, Bob!
+     ```
+
+4. Function Scope and Lexical Scope:
+   - Explanation: Function scope refers to the visibility of variables within a function. Lexical scope determines variable visibility based on the physical location of variable declarations in the code.
+   - Example:
+     ```javascript
+     function outer() {
+       const x = 10;
+
+       function inner() {
+         const y = 20;
+         console.log(x + y);
+       }
+
+       inner(); // Output: 30
+     }
+
+     outer();
+     ```
+
+5. Immediately Invoked Function Expressions (IIFE):
+   - Explanation: An IIFE is a self-invoking function that runs as soon as it is defined. It creates a new scope, allowing for the creation of private variables and avoiding global namespace pollution.
+   - Example:
+     ```javascript
+     (function () {
+       const message = "Hello, world!";
+       console.log(message);
+     })(); // Output: Hello, world!
+     ```
+
+6. Arrow Functions:
+   - Explanation: Arrow functions provide a concise syntax for writing functions. They inherit the lexical scope of the surrounding code and have some behavioral differences compared to regular functions.
+   - Example:
+     ```javascript
+     const double = (x) => return x * 2;
+     console.log(double(5)); // Output: 10
+
+     const sum = (a, b) => {
+       const result = a + b;
+       return result;
+     };
