@@ -1,30 +1,13 @@
-let m = 1e9 + 7
-function solves(A, B) {
-    let ans = 0
-    let dp = Array(A+1).fill().map(() => Array(B+1).fill(-1))
-    console.log(dp)
-    function solve(digitLeft, sum) {
-        if(sum < 0) return 0;
-        if(digitLeft == 0 && sum == 0) return 1;
-        if(digitLeft == 0) return 0;
-
-        if(dp[digitLeft][sum] != -1) return dp[digitLeft][sum];
-
-        let ans = 0;
-        for(let i = 0; i < 10; i++){
-            ans += solve(digitLeft - 1, sum - i);
-            ans %= m;
-        }
-        dp[digitLeft][sum] = ans % m;
-        return dp[digitLeft][sum];
-
+let arr = [5, 4, 3, 2, 1]
+let n = arr.length;
+for (let i = 1; i < n; i++) {
+    let key = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j];
+        j--;
+        console.log(arr)
     }
-    for(let i = 1; i < 10; i++){
-        ans += solve(A - 1, B - i);
-        ans %= m;
-    }
-    console.log('ans', ans)
-    return ans
-
+    arr[j + 1] = key;
+    console.log(arr)
 }
-solves(2, 4)

@@ -1,0 +1,66 @@
+Back-End Development (Serverless Approach):
+
+In traditional web development, the back-end is responsible for handling the server-side logic and processing data. In a serverless approach, instead of managing and maintaining servers, you focus on writing code functions that run in a cloud environment. These functions are event-driven and only execute when triggered by specific events, such as an HTTP request, database update, or file upload. Two popular serverless technologies are AWS Lambda and Firebase Functions.
+
+AWS Lambda:
+
+AWS Lambda is a serverless compute service provided by Amazon Web Services (AWS). It allows you to run your code without provisioning or managing servers. You can write Lambda functions in various programming languages, including JavaScript.
+
+Firebase Functions:
+
+Firebase Functions is a serverless compute platform provided by Google Firebase. It enables you to write server-side code that automatically scales based on demand. Firebase Functions are based on Google Cloud Functions and can be written in JavaScript.
+
+Hands-on Project: Implementing serverless back-end functionality using JavaScript:
+
+Let's consider an example where you want to create a serverless back-end function that calculates the square of a given number using JavaScript. We'll use AWS Lambda for this example.
+
+Step 1: Set up an AWS Lambda function:
+1. Create an AWS account if you don't have one already.
+2. Access the AWS Management Console and open the AWS Lambda service.
+3. Click on "Create function" and choose the option to author from scratch.
+4. Provide a name for your function, select the runtime as "Node.js 14.x," and choose an execution role.
+5. Click on "Create function" to create the Lambda function.
+
+Step 2: Write the JavaScript code for the Lambda function:
+```javascript
+exports.handler = async (event) => {
+  const number = event.number; // Retrieve the input number from the event
+
+  const square = number ** 2; // Calculate the square of the number
+
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      result: square,
+    }),
+  };
+
+  return response;
+};
+```
+
+Step 3: Configure the trigger for the Lambda function:
+In this example, we'll use an API Gateway as the trigger to invoke our Lambda function.
+
+1. Open the AWS Lambda function you created in Step 1.
+2. Click on "Add trigger" and select "API Gateway."
+3. Choose the "Create an API" option and configure the API as desired.
+4. Save the changes, and the API Gateway trigger will be added to your Lambda function.
+
+Step 4: Test the serverless back-end function:
+1. In the AWS Lambda console, click on "Test" to simulate a test event.
+2. Provide a test event JSON payload with the input number:
+```json
+{
+  "number": 5
+}
+```
+3. Click on "Create" and then click on "Test" again to execute the Lambda function.
+4. You should receive a response with the square of the input number:
+```json
+{
+  "result": 25
+}
+```
+
+That's it! You have successfully implemented a serverless back-end function using JavaScript and AWS Lambda. You can further explore serverless technologies and their capabilities to build more complex server-side functionality.
